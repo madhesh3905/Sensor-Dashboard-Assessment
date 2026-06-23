@@ -1,2 +1,31 @@
-# Sensor-Dashboard-Assessment
-Simple Sensor Dashboard built using Flask, HTML, CSS, and JavaScript for App &amp; Backend Intern Assessment.
+# Sensor Dashboard Assessment
+
+A simple sensor dashboard developed using Flask, HTML, CSS, and JavaScript.
+
+## Features
+
+- Display Temperature
+- Display Humidity
+- Display Pressure
+- REST API Endpoint
+- GET and POST operations
+
+## Technologies Used
+
+- Python
+- Flask
+- HTML
+- CSS
+- JavaScript
+
+## API Endpoint
+
+GET /sensor
+
+POST /sensor
+
+## Run
+
+pip install -r requirements.txt
+
+python app.py
