@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sensor Dashboard</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#667eea,#764ba2);
+}
+
+.container{
+    width:90%;
+    max-width:900px;
+    text-align:center;
+}
+
+h1{
+    color:white;
+    margin-bottom:30px;
+    font-size:2.5rem;
+}
+
+.dashboard{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(10px);
+    border-radius:20px;
+    padding:25px;
+    color:white;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.icon{
+    font-size:50px;
+    margin-bottom:10px;
+}
+
+.value{
+    font-size:2rem;
+    font-weight:bold;
+    margin-top:10px;
+}
+
+button{
+    margin-top:30px;
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    background:white;
+    color:#667eea;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+.time{
+    color:white;
+    margin-top:15px;
+    font-size:14px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+```
+<h1>🌡 Sensor Dashboard Assesment</h1>
+
+<div class="dashboard">
+
+    <div class="card">
+        <div class="icon">🌡</div>
+        <h3>Temperature</h3>
+        <div class="value" id="temp">-- °C</div>
+    </div>
+
+    <div class="card">
+        <div class="icon">💧</div>
+        <h3>Humidity</h3>
+        <div class="value" id="hum">-- %</div>
+    </div>
+
+    <div class="card">
+        <div class="icon">📊</div>
+        <h3>Pressure</h3>
+        <div class="value" id="press">-- hPa</div>
+    </div>
+
+</div>
+
+<button onclick="loadData()">🔄 Refresh Data</button>
+
+<div class="time" id="time">
+    Last Updated: --
+</div>
+```
+
+</div>
+
+<script>
+
+function loadData(){
+
+    fetch('/sensor')
+    .then(response => response.json())
+    .then(data => {
+
+        document.getElementById('temp').innerHTML =
+            data.temperature + " °C";
+
+        document.getElementById('hum').innerHTML =
+            data.humidity + " %";
+
+        document.getElementById('press').innerHTML =
+            data.pressure + " hPa";
+
+        document.getElementById('time').innerHTML =
+            "Last Updated: " + new Date().toLocaleTimeString();
+
+    })
+    .catch(error=>{
+        console.log(error);
+    });
+
+}
+
+loadData();
+
+setInterval(loadData,5000);
+
+</script>
+
+</body>
+</html>
