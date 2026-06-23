@@ -29,3 +29,17 @@ POST /sensor
 pip install -r requirements.txt
 
 python app.py
+
+## Screenshots
+
+### Dashboard
+
+![Dashboard](screenshots/dashboard.png)
+
+### GET API
+
+![GET API](screenshots/get-api.png)
+
+### POST API
+
+![POST API](screenshots/post-api.png)
