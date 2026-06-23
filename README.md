@@ -34,12 +34,14 @@ python app.py
 
 ### Dashboard
 
-![Dashboard](screenshots/dashboard.png)
+![Dashboard](Screenshots/dashboard.png)
 
 ### GET API
 
-![GET API](screenshots/get-api.png)
+![GET API](Screenshots/get-api.png)
 
 ### POST API
 
-![POST API](screenshots/post-api.png)
+![POST API](Screenshots/post-api.png)
+### Flask-Server
+![Flask Server](Screenshots/flask-server.png)
